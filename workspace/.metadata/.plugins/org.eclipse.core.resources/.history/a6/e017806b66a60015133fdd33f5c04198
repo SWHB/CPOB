@@ -1,0 +1,130 @@
+package frame;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class FrameSoutenance extends JFrame implements ActionListener{
+	
+	//info etudiant
+	private JLabel infoEtudiant;
+	private JLabel firstnameetu;
+	private JLabel lastnameetu;
+	private JLabel emailetu;
+	private JLabel phoneetu;
+	private JTextField prenometu;
+	private JTextField nometdu;
+	private JTextField email;
+	private JTextField tel;
+	
+	//info soutenance
+	private JLabel date;
+	private JLabel classroom;
+	private JLabel jury;
+	private JLabel document;
+	
+	//saisie info soutenance
+	private JTextField dat;
+	private JComboBox<String> salle;
+	private JComboBox<String>jr;
+	private JComboBox<String>documents;
+	
+	//panel info soutenance
+	private JPanel pnlsout;
+	
+	//panel calendrier
+	private JPanel pnlcal;
+	
+	
+	public FrameSoutenance() {
+		super("Soutenance");
+		
+		infoEtudiant=new JLabel("Information étudiant:");
+		
+		firstnameetu=new JLabel("prénom :");
+		prenometu=new JTextField();
+		
+		lastnameetu=new JLabel("nom :");
+		nometdu=new JTextField();
+		
+		emailetu=new JLabel("Email :");
+		email=new JTextField();
+		
+		phoneetu=new JLabel("Téléphone :");
+		tel=new JTextField();
+		
+		date=new JLabel("Date :");
+		dat=new JTextField();
+		
+		classroom=new JLabel("Salle :");
+		salle=new JComboBox<>();
+		
+		jury=new JLabel("Jury :");
+		jr=new JComboBox<>();
+		
+		document=new JLabel("Document");
+		documents=new JComboBox<>();
+		
+		pnlsout.add(firstnameetu);
+		pnlcal.add(prenometu);
+		pnlsout.add(lastnameetu);
+		
+		pnlsout.add(lastnameetu);
+		pnlcal.add(nometdu);
+		
+		pnlsout.add(firstnameetu);
+		pnlcal.add(prenometu);
+		
+		pnlsout.add(emailetu);
+		pnlcal.add(email);
+		
+		pnlsout.add(phoneetu);
+		pnlcal.add(tel);
+		
+		pnlsout.add(jury);
+		pnlcal.add(jr);
+		
+		pnlsout.add(classroom);
+		pnlcal.add(salle);
+		
+		pnlsout.add(date);
+		pnlcal.add(dat);
+		
+		pnlsout.add(document);
+		pnlcal.add(documents);
+		
+		this.setVisible(true);
+		
+		this.pack();
+		
+		this.setSize(460,400);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
+		this.setLayout(new BorderLayout());
+		this.add(pnlsout,BorderLayout.WEST);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pnlsout.setLayout(new GridLayout(11,2));	
+		
+	}
+	
+	public static void main(String args[])
+	{
+		FrameSoutenance f=new FrameSoutenance();
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}
