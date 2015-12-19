@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,9 +36,6 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 	private JComboBox<String> salle;
 	private JComboBox<String>jr;
 	private JComboBox<String>documents;
-	
-	private JButton creersout;
-	private JButton suppsout;
 	
 	//panel info soutenance
 	private JPanel pnlsout;
@@ -85,9 +81,6 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		document=new JLabel("Document");
 		documents=new JComboBox<>(docs);
 		
-		creersout=new JButton("Ajouter soutenance");
-		suppsout=new JButton("Supprimer soutenance");
-		
 		pnlsout=new JPanel();
 		pnlcal=new JPanel();
 		
@@ -118,20 +111,17 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		pnlsout.add(document);
 		pnlsout.add(documents);
 		
-		pnlsout.add(creersout);
-		pnlsout.add(suppsout);
-		
 		this.setVisible(true);
 		
 		this.pack();
 		
-		this.setSize(464,400);
+		this.setSize(400,300);
 	
 		this.setLocationRelativeTo(null);
 		this.setLayout(new BorderLayout());
 		this.add(pnlsout,BorderLayout.WEST);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pnlsout.setLayout(new GridLayout(9,2));	
+		pnlsout.setLayout(new GridLayout(8,2));	
 		
 	}
 	

@@ -86,7 +86,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		documents=new JComboBox<>(docs);
 		
 		creersout=new JButton("Ajouter soutenance");
-		suppsout=new JButton("Supprimer soutenance");
+		creersout=new JButton("Supprimer soutenance");
 		
 		pnlsout=new JPanel();
 		pnlcal=new JPanel();
@@ -125,7 +125,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		
 		this.pack();
 		
-		this.setSize(464,400);
+		this.setSize(400,300);
 	
 		this.setLocationRelativeTo(null);
 		this.setLayout(new BorderLayout());

@@ -125,7 +125,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		
 		this.pack();
 		
-		this.setSize(464,400);
+		this.setSize(490,400);
 	
 		this.setLocationRelativeTo(null);
 		this.setLayout(new BorderLayout());
