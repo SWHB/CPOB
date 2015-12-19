@@ -57,6 +57,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 	private JMenuItem menuItemWeek;
 	private JMenuItem menuItemDay;
 	
+	private JMenuItem menuItemDisplay;
 	private JMenuItem menuItemAbout;
 	
 	private JMenuItem menuItem;
@@ -160,6 +161,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		menuItemMonth.addActionListener(this);
 		menuItemWeek.addActionListener(this);
 		
+		menuItemDisplay=new JMenuItem("Display");
 		menuItemAbout=new JMenuItem("About");
 		
 		menuItemLoad.addActionListener(this);
@@ -167,6 +169,8 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		menuItemSave.addActionListener(this);
 		
 		menuItemQuit.addActionListener(this);
+		
+		menuItemDisplay.addActionListener(this);
 		
 		menuItemAbout.addActionListener(this);
 		
@@ -180,6 +184,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		
 		menuEdition.add(menuView);
 		
+		menuAide.add(menuItemDisplay);
 		menuAide.add(menuItemAbout);
 		
 		JMenuBar menuBar = new JMenuBar();
