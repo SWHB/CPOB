@@ -1,0 +1,19 @@
+package listeners;
+
+import javax.swing.JOptionPane;
+/**
+ * <b> ApplicationErrorMessageDialog est la classe qui controle les message d'erreurs de l'application</b>
+ * @author William-Srivatsa-
+ *
+ */
+
+
+public class ApplicationErrorMessageDialog extends
+		AbstractApplicationMessageDialog {
+
+	@Override
+	protected void showMessage(String level, String message) {
+		JOptionPane.showMessageDialog(null, message, level, JOptionPane.ERROR_MESSAGE, null);
+	}
+
+}

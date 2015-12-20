@@ -1,0 +1,18 @@
+package exception;
+
+
+public class IUTException extends Exception {
+	public IUTException() {
+		super();
+		app.ApplicationSession.instance().getExceptionLogger().severe("empty");
+	}
+	public IUTException(StageException e) {
+		super (e);
+		app.ApplicationSession.instance().getExceptionLogger().severe(e.getMessage());
+	}
+	public IUTException(String message) {
+		super(message);
+		app.ApplicationSession.instance().getExceptionLogger().severe(message);
+	}
+	
+}

@@ -43,6 +43,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 	
 	private JButton creersout;
 	private JButton suppsout;
+	private JButton consullist;
 	
 	private JMenu menu;
 	private JMenu menuEdition;
@@ -107,6 +108,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		
 		creersout=new JButton("Ajouter soutenance");
 		suppsout=new JButton("Supprimer soutenance");
+		consullist=new JButton("Consulter liste étudiant");
 		
 		pnlsout=new JPanel();
 		pnlcal=new JPanel();

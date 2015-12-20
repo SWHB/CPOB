@@ -1,0 +1,17 @@
+package listeners;
+
+import javax.swing.JOptionPane;
+/**
+ * <b> ApplicationInfoMessageDialog est la classe qui controle les messages d'information de l'application</b>
+ * @author William-Srivatsa
+ *
+ */
+
+public class ApplicationInfoMessageDialog extends
+		AbstractApplicationMessageDialog {
+
+	@Override
+	protected void showMessage(String level, String message) {
+		JOptionPane.showMessageDialog(null, message, level, JOptionPane.INFORMATION_MESSAGE, null);
+	}
+}

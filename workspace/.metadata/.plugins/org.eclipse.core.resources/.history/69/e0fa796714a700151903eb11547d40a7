@@ -1,0 +1,22 @@
+package listeners;
+
+import app.IApplicationLogListener;
+/**
+ * <b> AbstractApplicationMessageDialog est la classe principale qui gère les messages de l'application</b>
+ * @author Hakim,William,Srivatsa,Bastien
+ *
+ */
+
+
+public abstract class AbstractApplicationMessageDialog implements
+		IApplicationLogListener {
+
+	@Override
+	public void newMessage(String level, String message) {
+	 showMessage(level, message);
+
+	}
+	
+	protected abstract void showMessage(String level, String message);
+
+}

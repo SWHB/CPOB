@@ -1,0 +1,43 @@
+package frame;
+
+import java.awt.BorderLayout;
+import java.util.ArrayList;
+
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+
+
+public class FrameListeEtudiant extends JFrame {
+		
+	private ArrayList<String> lesvoies;
+		private JList<String>listEtu;
+		private JLabel lbletu;
+		private String rue[];
+		
+		public FrameListeEtudiant()
+		{
+			super("Liste étudiant");
+						
+			this.setVisible(true);
+			this.pack();
+			this.setVisible(true);
+			this.setSize(500, 500);
+			this.setLocationRelativeTo(null);
+			
+			this.creercomposant();			
+		}
+		
+		public void creercomposant()
+		{
+		 this.lbletu=new JLabel();
+		 this.lbletu.setBorder(BorderFactory.createTitledBorder( "Etudiants"));
+		 this.add(this.lbletu, BorderLayout.CENTER);
+		}
+		
+		
+		
+		public static void main(String args[])
+		{
+			FrameListeEtudiant fl=new FrameListeEtudiant();
+		}
+}
