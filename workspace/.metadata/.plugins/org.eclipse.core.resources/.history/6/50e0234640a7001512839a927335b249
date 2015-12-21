@@ -17,13 +17,14 @@ public class FrameListeEtudiant extends JFrame implements ListSelectionListener 
 	private JLabel lbletu;
 	private String etudiant[];
 	private String infoetu[];
-
+	private Etudiant etu;
 		
 		
-		public FrameListeEtudiant()
+		public FrameListeEtudiant(Etudiant e)
 		{
 			super("Liste étudiant");
-			lesvoies=new ArrayList<>();
+			lesvoies =new ArrayList<>();
+			lesvoies.add("grg");
 						
 			this.setVisible(true);
 			this.pack();
@@ -63,7 +64,7 @@ public class FrameListeEtudiant extends JFrame implements ListSelectionListener 
 				}
 
 		public static void main(String args[])
-		{	
+		{
 			FrameListeEtudiant fl=new FrameListeEtudiant();
 		}
 }

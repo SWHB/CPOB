@@ -23,7 +23,7 @@ public class FrameListeEtudiant extends JFrame implements ListSelectionListener 
 		public FrameListeEtudiant()
 		{
 			super("Liste étudiant");
-			lesvoies=new ArrayList<>();
+			lesvoies=new String[100];
 						
 			this.setVisible(true);
 			this.pack();

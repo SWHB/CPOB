@@ -96,9 +96,6 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		phoneetu=new JLabel("Téléphone :");
 		tel=new JTextField(10);
 		
-		stage=new JLabel("Stage :");
-		stg=new JTextField(10);
-		
 		date=new JLabel("Date :");
 		dat=new JTextField(10);
 		
@@ -132,9 +129,6 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		
 		pnlsout.add(phoneetu);
 		pnlsout.add(tel);
-		
-		pnlsout.add(stage);
-		pnlsout.add(stg);
 		
 		pnlsout.add(jury);
 		pnlsout.add(jr);
@@ -212,7 +206,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		this.add(pnlsout,BorderLayout.WEST);
 		this.add(pnlcal,BorderLayout.EAST);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pnlsout.setLayout(new GridLayout(10,2));	
+		pnlsout.setLayout(new GridLayout(9,2));	
 		
 	}
 	

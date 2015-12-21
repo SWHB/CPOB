@@ -12,18 +12,18 @@ import modele.utilisateur.Etudiant;
 
 public class FrameListeEtudiant extends JFrame implements ListSelectionListener {
 		
-	private ArrayList<String> lesvoies;
+	private String[] lesvoies;
 	private JList<String>listEtu;
 	private JLabel lbletu;
 	private String etudiant[];
 	private String infoetu[];
-
+	private Etudiant etu;
 		
 		
-		public FrameListeEtudiant()
+		public FrameListeEtudiant(Etudiant e)
 		{
 			super("Liste étudiant");
-			lesvoies=new ArrayList<>();
+			lesvoies=new String[100];
 						
 			this.setVisible(true);
 			this.pack();

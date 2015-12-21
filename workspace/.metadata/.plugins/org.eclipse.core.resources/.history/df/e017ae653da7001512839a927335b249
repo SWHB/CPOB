@@ -5,25 +5,19 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
-import modele.utilisateur.Etudiant;
 
 
-public class FrameListeEtudiant extends JFrame implements ListSelectionListener {
+public class FrameListeEtudiant extends JFrame {
 		
-	private ArrayList<String> lesvoies;
 	private JList<String>listEtu;
 	private JLabel lbletu;
 	private String etudiant[];
 	private String infoetu[];
-
 		
 		
 		public FrameListeEtudiant()
 		{
 			super("Liste étudiant");
-			lesvoies=new ArrayList<>();
 						
 			this.setVisible(true);
 			this.pack();
@@ -63,7 +57,7 @@ public class FrameListeEtudiant extends JFrame implements ListSelectionListener 
 				}
 
 		public static void main(String args[])
-		{	
+		{
 			FrameListeEtudiant fl=new FrameListeEtudiant();
 		}
 }
