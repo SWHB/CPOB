@@ -61,14 +61,6 @@ public class Soutenance {
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-
-	public Jury getJury() {
-		return jury;
-	}
-
-	public void setJury(Jury jury) {
-		this.jury = jury;
-	}
 	
 	
 }

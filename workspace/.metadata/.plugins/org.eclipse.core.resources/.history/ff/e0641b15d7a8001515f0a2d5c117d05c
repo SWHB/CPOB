@@ -3,7 +3,6 @@ package modele.planning;
 import java.util.Date;
 
 import modele.stage.Stage;
-import modele.utilisateur.Jury;
 
 /**
  * <b>Classe servant à gérer les soutenances des stages.</b>
@@ -26,16 +25,11 @@ public class Soutenance {
 	 * @see Date
 	 */
 	private Date dateFin;
-	/**
-	 * Le Jury de la soutenance
-	 */
-	private Jury jury;
 	
-	public Soutenance(Stage stg, Date debut, Date fin, Jury jur){
+	public Soutenance(Stage stg, Date debut, Date fin){
 		this.sonStage=stg;
 		this.dateDebut=debut;
 		this.dateFin=fin;
-		this.jury=jur;
 	}
 
 	public Stage getSonStage() {
@@ -60,14 +54,6 @@ public class Soutenance {
 
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
-	}
-
-	public Jury getJury() {
-		return jury;
-	}
-
-	public void setJury(Jury jury) {
-		this.jury = jury;
 	}
 	
 	
