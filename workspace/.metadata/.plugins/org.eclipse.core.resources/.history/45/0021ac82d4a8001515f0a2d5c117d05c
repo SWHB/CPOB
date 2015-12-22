@@ -1,0 +1,5 @@
+package modele.utilisateur;
+
+public class Jury {
+
+}
