@@ -3,17 +3,8 @@ package modele.utilisateur;
 import java.util.ArrayList;
 
 import modele.stage.Stage;
-/**
- * Classe représentant les Jury
- * @author Schlange
- *
- */
+
 public class Jury {
-	/**
-	 * List des Enseignants
-	 * @see ArrayList
-	 * @see Enseignant
-	 */
 	private ArrayList<Enseignant> lesEnseignant;
 	private Stage sonStage;
 	private Enseignant president;
@@ -23,14 +14,6 @@ public class Jury {
 		this.sonStage = stg;
 		this.lesEnseignant = new ArrayList<Enseignant>();
 		this.lesEnseignant.add(this.sonStage.getEtudiantStage().getProfReferent());
-	}
-	
-	public Jury(Stage stg, Enseignant president){
-		this.president=null;
-		this.sonStage = stg;
-		this.lesEnseignant = new ArrayList<Enseignant>();
-		this.lesEnseignant.add(this.sonStage.getEtudiantStage().getProfReferent());
-		this.president=president;
 	}
 
 	public ArrayList<Enseignant> getLesEnseignant() {
@@ -66,11 +49,10 @@ public class Jury {
 	}
 	/**
 	 * Renvoi si le jury est prèt:
-	 *  
+	 *  0: pas prêt
+	 *  1: prêt
+	 *  2: manque le president
 	 * @return
-	 * 		0: pas prêt
-	 *  	1: prêt
-	 *  	2: manque le president
 	 */
 	public int juryPret(){
 		if(lesEnseignant.size()>2){
