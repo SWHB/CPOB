@@ -1,5 +1,4 @@
 package modele.planning;
-import java.util.ArrayList;
 import java.util.Date;
 /**
  * <b>Cette classe représente le planning des soutenances</b>
@@ -17,15 +16,10 @@ public class Planning {
 	 * Date de fin des soutenances
 	 */
 	private Date dateFin;
-	/**
-	 * Les soutenances du planning
-	 */
-	private ArrayList<Soutenance> lesSoustenances;
 	
 	private  Planning(Date debut, Date fin){
 		this.dateDebut=debut;
 		this.dateFin=fin;
-		this.lesSoustenances= new ArrayList<Soutenance>();
 	}
 	
 	private static Planning INSTANCE =null;
@@ -52,26 +46,7 @@ public class Planning {
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-
-	public ArrayList<Soutenance> getLesSoustenances() {
-		return lesSoustenances;
-	}
-
-	public void setLesSoustenances(ArrayList<Soutenance> lesSoustenances) {
-		this.lesSoustenances = lesSoustenances;
-	}
-
-	public static Planning getINSTANCE() {
-		return INSTANCE;
-	}
-
-	public static void setINSTANCE(Planning iNSTANCE) {
-		INSTANCE = iNSTANCE;
-	}
 	
-	public void ajouterSoutenance(Soutenance sout){
-		this.lesSoustenances.add(sout);
-	}
 	
 	
 }
