@@ -68,24 +68,13 @@ public class Planning {
 	public static void setINSTANCE(Planning iNSTANCE) {
 		INSTANCE = iNSTANCE;
 	}
-	/**
-	 * permet d'ajouter une soutenance au planning
-	 * @param sout
-	 * @return vrai si la Soutenance à bien été ajouter, faux sinon
-	 */
-	public boolean ajouterSoutenance(Soutenance sout){
+	
+	public void ajouterSoutenance(Soutenance sout){
 		if(this.verifSoutenance(sout)){
 			this.lesSoustenances.add(sout);
-			return true;
 		}
-		return false;
 	}
-	/**
-	 * Vérifie si la soutenance peut être ajouter au planning
-	 * @param sout
-	 * @return
-	 * 		vrai si la soutenance est contenu dans l'intervale du planning, faux sinon
-	 */
+	
 	public boolean verifSoutenance(Soutenance sout){
 		if(sout.getDateDebut().after(this.dateDebut) && sout.getDateFin().before(this.dateFin)){
 			return true;
