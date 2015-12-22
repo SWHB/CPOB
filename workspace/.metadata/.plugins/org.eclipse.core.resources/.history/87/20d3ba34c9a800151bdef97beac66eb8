@@ -257,7 +257,6 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 			this.setSize(700,400);
 			this.remove(pnlsout);
 			this.remove(pnlcal);
-			this.setLocationRelativeTo(null);
 			this.setVisible(true);
 			this.add(new SupprimerSoutenance(),BorderLayout.WEST);
 		}
