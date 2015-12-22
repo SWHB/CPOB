@@ -1,3 +1,5 @@
+package panel;
+
 import java.awt.GridLayout;
 
 import javax.swing.*;
