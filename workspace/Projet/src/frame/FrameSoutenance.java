@@ -25,6 +25,7 @@ import modele.planning.Soutenance;
 import modele.stage.Stage;
 import modele.utilisateur.Etudiant;
 import modele.utilisateur.Jury;
+import panel.SupprimerSoutenance;
 
 public class FrameSoutenance extends JFrame implements ActionListener{
 	
@@ -56,7 +57,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 	private JTextField heurdeb;
 	private JTextField heurfin;
 	private JComboBox<String> salle;
-	private JComboBox<String>jr;
+	private JComboBox<String>jur;
 	private JButton documents;
 	
 	private JButton creersout;
@@ -101,6 +102,8 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 	public FrameSoutenance() {
 		super("Soutenance");
 		
+		SupprimerSoutenance s=new SupprimerSoutenance();
+		
 		infoEtudiant=new JLabel("Information étudiant:");
 		
 		firstnameetu=new JLabel("prénom :");
@@ -134,7 +137,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		salle=new JComboBox<>(classe);
 		
 		jury=new JLabel("Jury :");
-		jr=new JComboBox<>(listjury);
+		jur=new JComboBox<>(listjury);
 		
 		document=new JLabel("Document");
 		documents=new JButton("Parcourrir");
@@ -174,7 +177,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		pnlsout.add(stg);
 		
 		pnlsout.add(jury);
-		pnlsout.add(jr);
+		pnlsout.add(jur);
 		
 		pnlsout.add(classroom);
 		pnlsout.add(salle);
@@ -268,12 +271,16 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 		if(e.getSource()==suppsout)
 		{	
-			this.setSize(700,400);
+			this.setSize(700,200);
 			this.remove(pnlsout);
 			this.remove(pnlcal);
 			this.setLocationRelativeTo(null);
 			this.setVisible(true);
+			// soit un nouveau panel SupprimerSoutenance()
 			this.add(new SupprimerSoutenance(),BorderLayout.WEST);
+			
+			// soit supprimer direct
+			
 		}
 		
 		
@@ -291,29 +298,26 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		
 		if(e.getSource()==creersout)
 		{	
-			String jury=jr.getSelectedItem().toString();
-			String sal=salle.getSelectedItem().toString();
-			
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
-	        
 			etu=new Etudiant(nometdu.getText(), prenometu.getText(),"lpl" , tel.getText(),email.getText(),"42",grp.getText());
 			
-			try {
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+			/*try {
 				sout=new Soutenance(new Stage(stg.getText()), sdf.parse(dat.getText()), sdf.parse(dat.getText()), new Jury(new Stage(stg.getText())));
 			} catch (ParseException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
+			}*/
 			
 			JLabel lblnom=new JLabel(nometdu.getText());
 			JLabel lblprenom=new JLabel(prenometu.getText());
 			JLabel lbltel=new JLabel(tel.getText());
+			JLabel lbldate=new JLabel(dat.getText());
 			JLabel lblmail=new JLabel(email.getText());
 			JLabel lblgroup=new JLabel(grp.getText());
 			JLabel lbldeb=new JLabel(heurdeb.getText());
 			JLabel lblfin=new JLabel(heurfin.getText());
-			JLabel jr=new JLabel(jury);
-			JLabel sall=new JLabel(sal);
+			JLabel jr=new JLabel(jur.getSelectedItem().toString());
+			JLabel sall=new JLabel(salle.getSelectedItem().toString());
 			JLabel lblstg=new JLabel(stg.getText());
 			
 			pnlcal.add(lblnom);
@@ -324,9 +328,19 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 			pnlcal.add(lblstg);
 			pnlcal.add(jr);
 			pnlcal.add(sall);
+			pnlcal.add(lbldate);
 			pnlcal.add(lbldeb);
 			pnlcal.add(lblfin);
 			
+			nometdu.setText("");
+			prenometu.setText("");
+			grp.setText("");
+			email.setText("");
+			tel.setText("");
+			stg.setText("");
+			dat.setText("");
+			heurdeb.setText("");
+			heurfin.setText("");
 			
 			this.setVisible(true);
 			this.add(pnlcal,BorderLayout.CENTER);

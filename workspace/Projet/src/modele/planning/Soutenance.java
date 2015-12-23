@@ -38,6 +38,11 @@ public class Soutenance {
 		this.dateFin=fin;
 		this.jury=jur;
 	}
+	
+	public void finalize(Stage stg, Date debut, Date fin, Jury jur)
+    {
+         System.out.println("Objet nettoyé de la mémoire");   
+    }
 
 	public Stage getSonStage() {
 		return sonStage;
