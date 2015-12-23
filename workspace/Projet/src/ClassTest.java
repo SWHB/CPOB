@@ -17,7 +17,7 @@ public class ClassTest {
 		
 		control.ajouterUtilisateur(etu);
 		//control.ajouterUtilisateur(etu1);
-		if (control.rechercherUtilisateur("a","")){
+		if (control.rechercherUtilisateur("a","") != null){
 			System.out.println("ok");
 		}
 		

@@ -31,6 +31,7 @@ public class Soutenance {
 	 */
 	private Jury jury;
 	
+	
 	public Soutenance(Stage stg, Date debut, Date fin, Jury jur){
 		this.sonStage=stg;
 		this.dateDebut=debut;

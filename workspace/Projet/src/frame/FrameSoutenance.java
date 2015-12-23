@@ -6,6 +6,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -19,7 +21,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import modele.planning.Soutenance;
+import modele.stage.Stage;
 import modele.utilisateur.Etudiant;
+import modele.utilisateur.Jury;
 
 public class FrameSoutenance extends JFrame implements ActionListener{
 	
@@ -39,6 +44,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 	private JTextField stg;
 	
 	//info soutenance
+	private JLabel date;
 	private JLabel heuredeb;
 	private JLabel heurefin;
 	private JLabel classroom;
@@ -46,6 +52,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 	private JLabel document;
 	
 	//saisie info soutenance
+	private JTextField dat;
 	private JTextField heurdeb;
 	private JTextField heurfin;
 	private JComboBox<String> salle;
@@ -89,6 +96,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 	private String[] docs = { "stage", "entreprise", "fonction",  };
 	
 	private Etudiant etu;
+	private Soutenance sout;
 	
 	public FrameSoutenance() {
 		super("Soutenance");
@@ -112,6 +120,9 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		
 		stage=new JLabel("Stage :");
 		stg=new JTextField(10);
+		
+		date=new JLabel("Date :");
+		dat=new JTextField(5);
 		
 		heuredeb=new JLabel("Heure de début :");
 		heurdeb=new JTextField(5);
@@ -167,6 +178,9 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		
 		pnlsout.add(classroom);
 		pnlsout.add(salle);
+		
+		pnlsout.add(date);
+		pnlsout.add(dat);
 		
 		pnlsout.add(heuredeb);
 		pnlsout.add(heurdeb);
@@ -240,7 +254,7 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		this.add(pnlsout,BorderLayout.WEST);
 		this.add(pnlcal,BorderLayout.EAST);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pnlsout.setLayout(new GridLayout(12,2));	
+		pnlsout.setLayout(new GridLayout(13,2));	
 		
 	}
 	
@@ -277,42 +291,30 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 		
 		if(e.getSource()==creersout)
 		{	
-			String nom=nometdu.getText();
-			String prenom=prenometu.getText();
-			
-			String addrper="lpl";
-			String telp=tel.getText();
-	
-			String mail=email.getText();
-			String mdp ="42";
-			
-			String stage=stg.getText();
-			
-			String group=grp.getText();
-			
-			String hdeb=heurdeb.getText();
-			String hfin=heurfin.getText();
-			
 			String jury=jr.getSelectedItem().toString();
 			String sal=salle.getSelectedItem().toString();
 			
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+	        
+			etu=new Etudiant(nometdu.getText(), prenometu.getText(),"lpl" , tel.getText(),email.getText(),"42",grp.getText());
 			
+			try {
+				sout=new Soutenance(new Stage(stg.getText()), sdf.parse(dat.getText()), sdf.parse(dat.getText()), new Jury(new Stage(stg.getText())));
+			} catch (ParseException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
-			etu=new Etudiant(nom, prenom,addrper , telp, mail,mdp,group);
-			
-			JLabel lblnom=new JLabel(nom);
-			JLabel lblprenom=new JLabel(prenom);
-			JLabel lbltel=new JLabel(telp);
-			JLabel lblmail=new JLabel(mail);
-			JLabel lblgroup=new JLabel(group);
-			JLabel lbldeb=new JLabel(hdeb);
-			JLabel lblfin=new JLabel(hfin);
+			JLabel lblnom=new JLabel(nometdu.getText());
+			JLabel lblprenom=new JLabel(prenometu.getText());
+			JLabel lbltel=new JLabel(tel.getText());
+			JLabel lblmail=new JLabel(email.getText());
+			JLabel lblgroup=new JLabel(grp.getText());
+			JLabel lbldeb=new JLabel(heurdeb.getText());
+			JLabel lblfin=new JLabel(heurfin.getText());
 			JLabel jr=new JLabel(jury);
 			JLabel sall=new JLabel(sal);
-			JLabel lblstg=new JLabel(stage);
-			
-				
-			
+			JLabel lblstg=new JLabel(stg.getText());
 			
 			pnlcal.add(lblnom);
 			pnlcal.add(lblprenom);
@@ -324,12 +326,6 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 			pnlcal.add(sall);
 			pnlcal.add(lbldeb);
 			pnlcal.add(lblfin);
-			
-			
-			
-			
-			
-			
 			
 			
 			this.setVisible(true);

@@ -36,6 +36,11 @@ public class Stage {
 	 */
 	private Etudiant etudiantStage;
 	
+	public Stage(String id)
+	{
+		this.identifiant=id;
+	}
+	
 	
 	public Stage(boolean renumereStage, float renumerationStage) {
 		this.renumere = renumereStage;
