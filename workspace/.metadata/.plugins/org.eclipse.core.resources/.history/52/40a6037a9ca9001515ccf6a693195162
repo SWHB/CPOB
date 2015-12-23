@@ -1,0 +1,94 @@
+package frame;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class FrameConnexion extends JFrame implements ActionListener {
+	private JLabel login;
+	private JLabel mdpasse;
+	
+	private JTextField log;
+	private JPasswordField mdp;
+	
+	private JButton connexion;
+	private JPanel pnllbl;
+	private JPanel pnltxt;
+	
+	 public FrameConnexion() {
+		super("Connexion soutenance");
+		
+		login=new JLabel("Login :");
+		log=new JTextField(10);
+		log.addActionListener(this);
+		mdpasse=new JLabel("Mot de passe :");
+		mdp=new JPasswordField(10);
+		mdp.addActionListener(this);
+		
+		
+		connexion=new JButton("Connexion");
+		connexion.addActionListener(this);
+		
+		pnllbl=new JPanel();
+		pnltxt=new JPanel();
+		
+		pnllbl.add(login);
+		pnltxt.add(log);
+		pnllbl.add(mdpasse);
+		pnltxt.add(mdp);
+		
+		pnltxt.add(connexion);
+		
+		this.setVisible(true);
+		
+		this.pack();
+		
+		this.setSize(290,140);
+	
+		this.setLocationRelativeTo(null);
+		this.add(pnllbl,BorderLayout.WEST);
+		this.add(pnltxt,BorderLayout.EAST);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pnllbl.setLayout(new GridLayout(3,1));
+		pnltxt.setLayout(new GridLayout(3,1));
+		
+		
+		
+	}
+	 
+	 public static void main(String args[])
+	 {
+		 new FrameConnexion();
+	 }
+
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource()==connexion)
+		{
+			if(log.getText()=="root" && mdp.getText().toString()=="root")
+			{	
+			
+				//planning
+		
+			}
+			else if(log.getText()=="enseignant" && mdp.getText().toString()=="enseignant")
+			{
+				new FrameSoutenance();
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(this,"Eggs are not supposed to be green.","Inane error",JOptionPane.ERROR_MESSAGE);
+			}
+		
+		}
+	}
+}

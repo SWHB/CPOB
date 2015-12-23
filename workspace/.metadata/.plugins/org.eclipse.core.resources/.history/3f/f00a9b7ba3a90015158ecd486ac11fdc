@@ -1,0 +1,80 @@
+package modele.planning;
+
+import java.util.Date;
+
+import modele.stage.Stage;
+import modele.utilisateur.Jury;
+
+/**
+ * <b>Classe servant à gérer les soutenances des stages.</b>
+ * @author Schlange
+ *
+ */
+public class Soutenance {
+	/**
+	 * Le stage rattaché à la soutenance
+	 * @see Stage
+	 */
+	private Stage sonStage;
+	/**
+	 * La date de début rattaché à la soutenance
+	 * @see Date
+	 */
+	private Date dateDebut;
+	/**
+	 * La date de fin rattaché à la soutenance
+	 * @see Date
+	 */
+	private Date dateFin;
+	/**
+	 * Le Jury de la soutenance
+	 */
+	private Jury jury;
+	
+	
+	public Soutenance(Stage stg, Date debut, Date fin, Jury jur){
+		this.sonStage=stg;
+		this.dateDebut=debut;
+		this.dateFin=fin;
+		this.jury=jur;
+	}
+	
+	public void finalize(Stage stg, Date debut, Date fin, Jury jur)
+    {
+         System.out.println("Objet nettoyé de la mémoire");   
+    }
+
+	public Stage getSonStage() {
+		return sonStage;
+	}
+
+	public void setSonStage(Stage sonStage) {
+		this.sonStage = sonStage;
+	}
+
+	public Date getDateDebut() {
+		return dateDebut;
+	}
+
+	public void setDateDebut(Date dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+
+	public Date getDateFin() {
+		return dateFin;
+	}
+
+	public void setDateFin(Date dateFin) {
+		this.dateFin = dateFin;
+	}
+
+	public Jury getJury() {
+		return jury;
+	}
+
+	public void setJury(Jury jury) {
+		this.jury = jury;
+	}
+	
+	
+}

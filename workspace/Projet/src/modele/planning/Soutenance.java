@@ -1,8 +1,10 @@
 package modele.planning;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import modele.stage.Stage;
+import modele.utilisateur.Etudiant;
 import modele.utilisateur.Jury;
 
 /**
@@ -31,12 +33,37 @@ public class Soutenance {
 	 */
 	private Jury jury;
 	
+	private ArrayList<Etudiant> sesEtudiants;
+	
 	
 	public Soutenance(Stage stg, Date debut, Date fin, Jury jur){
 		this.sonStage=stg;
 		this.dateDebut=debut;
 		this.dateFin=fin;
 		this.jury=jur;
+		ArrayList<Etudiant> sesEtudiants=new ArrayList<>();
+	}
+	
+	public void supprimerEtu(Etudiant e)
+	{
+		for(Etudiant etu:sesEtudiants)
+		{
+			if(etu.toString()==e.toString())
+			{
+				sesEtudiants.remove(e);
+			}
+		}
+	}
+	
+	public void ajoutEtu(Etudiant e)
+	{
+		for(Etudiant etu:sesEtudiants)
+		{
+			if(etu.toString()==e.toString())
+			{
+				sesEtudiants.add(e);
+			}
+		}
 	}
 	
 	public void finalize(Stage stg, Date debut, Date fin, Jury jur)

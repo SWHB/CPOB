@@ -10,4 +10,6 @@
 <fullyQualifiedTypeName name="modele.utilisateur.Jury"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="modele.entreprise.Entreprise"/>
+<fullyQualifiedTypeName name="frame.FrameSoutenance"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 </qualifiedTypeNameHistroy>

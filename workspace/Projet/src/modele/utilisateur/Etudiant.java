@@ -1,7 +1,10 @@
 package modele.utilisateur;
 
+import java.util.ArrayList;
+
 import modele.document.Dossier;
 import modele.entreprise.Entreprise;
+import modele.planning.Soutenance;
 import modele.stage.Stage;
 
 /**
@@ -34,6 +37,7 @@ public class Etudiant extends Utilisateur{
 	 * @see Dossier
 	 */
 	private Dossier sonDossier;
+	
 	
 	public Etudiant(String nomEtudiant, String prenomEtudiant, String adressePersoEtudiant, String telEtudiant, String adresseMailEtudiant, String mdpEtudiant,
 			String groupe) {

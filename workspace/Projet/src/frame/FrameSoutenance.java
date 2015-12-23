@@ -279,7 +279,20 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 			// soit un nouveau panel SupprimerSoutenance()
 			this.add(new SupprimerSoutenance(),BorderLayout.WEST);
 			
+			
+			
 			// soit supprimer direct
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+			try {
+			new Soutenance(new Stage(stg.getText()), sdf.parse(dat.getText()), sdf.parse(dat.getText()), new Jury(new Stage(stg.getText()))).supprimerEtu(new Etudiant(nometdu.getText(), 
+						prenometu.getText(),"lpl" , tel.getText(),email.getText(),"42",grp.getText()));
+			
+			} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			}
+			new Etudiant(nometdu.getText(), prenometu.getText(),"lpl" , tel.getText(),email.getText(),"42",grp.getText());
+			
 			
 		}
 		
@@ -301,12 +314,14 @@ public class FrameSoutenance extends JFrame implements ActionListener{
 			etu=new Etudiant(nometdu.getText(), prenometu.getText(),"lpl" , tel.getText(),email.getText(),"42",grp.getText());
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
-			/*try {
-				sout=new Soutenance(new Stage(stg.getText()), sdf.parse(dat.getText()), sdf.parse(dat.getText()), new Jury(new Stage(stg.getText())));
+			try {
+				new Soutenance(new Stage(stg.getText()), sdf.parse(dat.getText()), sdf.parse(dat.getText()), new Jury(new Stage(stg.getText()))).ajoutEtu(new Etudiant
+						(nometdu.getText(), prenometu.getText(),"lpl" , tel.getText(),email.getText(),"42",grp.getText()));
+				
 			} catch (ParseException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}*/
+			}
 			
 			JLabel lblnom=new JLabel(nometdu.getText());
 			JLabel lblprenom=new JLabel(prenometu.getText());
