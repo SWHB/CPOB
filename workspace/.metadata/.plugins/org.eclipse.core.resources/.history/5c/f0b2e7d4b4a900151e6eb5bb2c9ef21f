@@ -1,0 +1,13 @@
+package controleur;
+
+import java.util.ArrayList;
+import modele.document.*;
+
+public class ControleurDocument {
+	
+	private ArrayList<Document> lesDocuments;
+	
+	public ControleurDocument(){
+		
+	}
+}

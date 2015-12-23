@@ -1,4 +1,7 @@
 package modele.utilisateur;
+
+import modele.document.Dossier;
+
 /**
  * <b>Cette Classe représente les utilisateurs de l'application</b>
  * @author Schlange
@@ -45,6 +48,8 @@ public abstract class Utilisateur {
 	 * Les Disponibilités de l'utilisateur
 	 * @see Disponibilite
 	 */
+	
+	private Dossier sonDossier;
 	
 	public Utilisateur(){
 		vide=true;
@@ -139,4 +144,18 @@ public abstract class Utilisateur {
 		return (this.nom == nom &&
 				this.prenom == prenom);
 	}
+
+	public Dossier getSonDossier() {
+		return sonDossier;
+	}
+
+	public void setSonDossier(Dossier sonDossier) {
+		this.sonDossier = sonDossier;
+	}
+
+	public static int getIdentifNum() {
+		return identifNum;
+	}
+	
+	
 }

@@ -1,0 +1,19 @@
+package controleur;
+
+import java.util.ArrayList;
+import modele.document.*;
+
+public class ControleurDocument {
+	
+	private ArrayList<Document> lesDocuments;
+	
+	public ControleurDocument(){
+		this.lesDocuments = new ArrayList<Document>();
+	}
+	
+	public void ajoutDocument(Document doc){
+		this.lesDocuments.add(doc);
+	}
+	
+	
+}
