@@ -3,7 +3,6 @@ package modele.utilisateur;
 import java.util.ArrayList;
 
 import modele.entreprise.Entreprise;
-import modele.planning.Soutenance;
 
 /**
  * <b>Cette classe représente la personne qui s'occupe de l'étudiants en temps que tuteur au seins de l'entreprise</b>
@@ -24,14 +23,11 @@ public class TuteurEntreprise extends Utilisateur{
 	 */
 	private ArrayList<Etudiant> sesEtudiants;
 	
-	private ArrayList<Soutenance> sesSoutenaces;
-	
 	
 	public TuteurEntreprise(String nomTuteur, String prenomTuteur, String adressePersoTuteur, String telTuteur, String adresseMailTuteur,
 			String mdpTuteur) {
 		super(nomTuteur, prenomTuteur, adressePersoTuteur, telTuteur, adresseMailTuteur, mdpTuteur);
 		this.sesEtudiants= new ArrayList<Etudiant>();
-		this.sesSoutenaces= new ArrayList<Soutenance>();
 	}
 
 	public Entreprise getEntreprise() {

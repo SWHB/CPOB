@@ -15,12 +15,9 @@ public class Enseignant extends Utilisateur{
 	 */
 	private ArrayList<Etudiant> sesEtudiants;
 	
-	private ArrayList<Jury> sesJury;
-	
 	public Enseignant(String nomEnseignant, String prenomEnseignant, String adressePersoEnseignant, String telEnseignant, String adresseMailEnseignant, String mdpEnseignant) {
 		super(nomEnseignant, prenomEnseignant, adressePersoEnseignant, telEnseignant, adresseMailEnseignant, mdpEnseignant);
 		this.sesEtudiants = new ArrayList<Etudiant>();
-		this.sesJury = new ArrayList<Jury>();
 	}
 
 	public ArrayList<Etudiant> getSesEtudiants() {

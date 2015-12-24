@@ -2,7 +2,6 @@ package controleur;
 
 import java.util.ArrayList;
 
-import modele.planning.Soutenance;
 import modele.utilisateur.*;
 /**
  * Controleur des Utilisateurs
@@ -96,66 +95,18 @@ public class ControleurUtilisateur {
 		return false;
 	}
 	/**
-	 * Regarde si un utilisateur existe
+	 * renvoi un utilisateur s'il existe, sinon renvoi null
 	 * @param nom
 	 * @param prenom
 	 * @return
 	 */
-	public boolean rechercherUtilisateur(String nom, String prenom){
-		for(Utilisateur util : lesUtilisateurs){
-			if(util.comparerUtil(nom, prenom)){
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public Utilisateur renvoiUtilisateur(Utilisateur recheUti){
-		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==recheUti.getClass()){
-				System.out.println("ok");
-				if(util.comparerUtil(recheUti)){
-					return util;
-				}				
-			}
-		}
-		return null;
-	}
-	/**
-	 * Regarde si un utilisateur existe
-	 * @param nom
-	 * @param prenom
-	 * @return
-	 */
-	public Utilisateur renvoiUtilisateur(String nom, String prenom){
+	public Utilisateur rechercherUtilisateur(String nom, String prenom){
 		for(Utilisateur util : lesUtilisateurs){
 			if(util.comparerUtil(nom, prenom)){
 				return util;
 			}
 		}
 		return null;
-	}
-	
-	public void ajoutSoutenanceEtudiant(Etudiant etu, Soutenance sout){
-		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==etu.getClass()){
-				System.out.println("ok");
-				if(util.comparerUtil(etu)){
-					((Etudiant)util).setSaSoutenance(sout);;
-				}				
-			}
-		}
-	}
-	
-	public void retirerSoutenanceEtudiant(Etudiant etu){
-		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==etu.getClass()){
-				System.out.println("ok");
-				if(util.comparerUtil(etu)){
-					((Etudiant)util).setSaSoutenance(null);;
-				}				
-			}
-		}
 	}
 	
 }

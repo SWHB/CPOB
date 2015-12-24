@@ -52,9 +52,18 @@ public class Etudiant extends Utilisateur{
 			String groupe) {
 		super(nomEtudiant, prenomEtudiant, adressePersoEtudiant, telEtudiant, adresseMailEtudiant, mdpEtudiant);
 		this.groupe = groupe;
-		this.saSoutenance=null;
 	}
 	
+	public void ajoutSoutenance(Soutenance s)
+	{
+		 
+		
+	}
+	
+	public void supprimerSoutenance(Soutenance s)
+	{
+		
+	}
 
 	public Entreprise getEntrepriseStage() {
 		return entrepriseStage;
@@ -96,12 +105,4 @@ public class Etudiant extends Utilisateur{
 		this.sonDossier = sonDossier;
 	}
 
-	public Soutenance getSaSoutenance() {
-		return saSoutenance;
-	}
-
-	public void setSaSoutenance(Soutenance saSoutenance) {
-		this.saSoutenance = saSoutenance;
-	}
-	
 }
