@@ -38,15 +38,21 @@ public class Planning {
 	}
 	
 	public boolean rechercherSoutenance(Soutenance s)
-	{		
+	{
+		boolean trouve=false;
+		
 		for(Soutenance sout:lesSoustenances)
 		{
 			if(sout.toString()==s.toString())
 			{
-				return true;
+				trouve=true;
+			}
+			else
+			{
+				trouve=false;
 			}
 		}
-		return false;
+		return trouve;
 	}
 	
 	public void ajoutSoutenance(Soutenance s)

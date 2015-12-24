@@ -45,10 +45,6 @@ public class Entreprise {
 		this.sesStages = new ArrayList<Stage>();
 		this.sesTuteurs = new ArrayList<TuteurEntreprise>();
 	}
-	
-	public boolean comparer(Entreprise ent){
-		return (this.nom==ent.nom)&&(this.adresse==ent.adresse);
-	}
 
 	public String getNom() {
 		return nom;

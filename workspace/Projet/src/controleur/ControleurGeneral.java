@@ -1,0 +1,300 @@
+package controleur;
+import java.util.ArrayList;
+import java.util.Date;
+
+import modele.document.Dossier;
+import modele.entreprise.Entreprise;
+import modele.planning.Planning;
+import modele.planning.Soutenance;
+import modele.stage.Stage;
+import modele.utilisateur.*;
+
+
+public class ControleurGeneral {
+	/**
+	 * Liste contenant les utilisateurs
+	 * @see Utilisateur
+	 * @see Enseignant
+	 * @see Etudiant
+	 * @see TuteurEntreprise
+	 * @see ArrayList
+	 */
+	private ArrayList<Utilisateur> lesUtilisateurs;
+	
+	private ArrayList<Stage> lesStages;
+	
+	private ArrayList<Entreprise> lesEntreprises;
+	
+	private ArrayList<Dossier> lesDossiers;
+	
+	private Planning lePlanning;
+	
+	/**
+	 * Création du controleur
+	 */
+	public ControleurGeneral(Date debut, Date fin){
+		this.lesUtilisateurs = new ArrayList<Utilisateur>();
+		this.lesStages = new ArrayList<Stage>();
+		this.lesEntreprises = new ArrayList<Entreprise>();
+		this.lesDossiers = new ArrayList<Dossier>();
+		this.lePlanning = Planning.getInstance(debut, fin);
+		
+	}
+	/**
+	 * Ajout d'un Etudiant
+	 * @param nomEtudiant
+	 * @param prenomEtudiant
+	 * @param adressePersoEtudiant
+	 * @param telEtudiant
+	 * @param adresseMailEtudiant
+	 * @param mdpEtudiant
+	 * @param groupe
+	 * @see Etudiant
+	 */
+	public void ajoutEtudiant(String nomEtudiant, String prenomEtudiant, String adressePersoEtudiant, String telEtudiant, String adresseMailEtudiant, String mdpEtudiant,
+			String groupe){
+		this.ajoutUtilisateur(new Etudiant(nomEtudiant, prenomEtudiant, adressePersoEtudiant, telEtudiant, adresseMailEtudiant, mdpEtudiant, groupe));
+	}
+	/**
+	 * Ajout d'un TuteurEntreprise
+	 * @param nomTuteur
+	 * @param prenomTuteur
+	 * @param adressePersoTuteur
+	 * @param telTuteur
+	 * @param adresseMailTuteur
+	 * @param mdpTuteur
+	 * @see TuteurEntreprise
+	 */
+	public void ajoutTuteurEntreprise(String nomTuteur, String prenomTuteur, String adressePersoTuteur, String telTuteur, String adresseMailTuteur,
+			String mdpTuteur, Entreprise ent){
+		this.ajoutUtilisateur( new TuteurEntreprise( nomTuteur, prenomTuteur, adressePersoTuteur,  telTuteur,  adresseMailTuteur, mdpTuteur, ent));
+	}
+	/**
+	 * Ajout d'une Enseignant
+	 * @param nomEnseignant
+	 * @param prenomEnseignant
+	 * @param adressePersoEnseignant
+	 * @param telEnseignant
+	 * @param adresseMailEnseignant
+	 * @param mdpEnseignant
+	 * @see Enseignant
+	 */
+	public void ajoutEnseignant(String nomEnseignant, String prenomEnseignant, String adressePersoEnseignant, String telEnseignant, String adresseMailEnseignant, String mdpEnseignant) {
+		this.ajoutUtilisateur( new Enseignant(nomEnseignant, prenomEnseignant, adressePersoEnseignant, telEnseignant, adresseMailEnseignant, mdpEnseignant));
+	}
+	/**
+	 * Regarde si un utilisateur existe
+	 * @param recheUti
+	 * @return
+	 */
+	public boolean rechercherUtilisateur(Utilisateur recheUti){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==recheUti.getClass()){
+				if(util.comparerUtil(recheUti)){
+					return true;
+				}				
+			}
+		}
+		return false;
+	}
+	/**
+	 * Ajout d'un Utilisateur
+	 * @param util
+	 * @see Utilisateur
+	 */
+	public void ajoutUtilisateur(Utilisateur util){
+		if(!this.rechercherUtilisateur(util)){
+			lesUtilisateurs.add(util);
+		}
+	}
+	/**
+	 * Regarde si un utilisateur existe
+	 * @param nom
+	 * @param prenom
+	 * @return
+	 */
+	public boolean rechercherUtilisateur(String nom, String prenom){
+		for(Utilisateur util : lesUtilisateurs){
+			if(util.comparerUtil(nom, prenom)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean rechercherEntreprise(Entreprise ent){
+		for(Entreprise entrepr : this.lesEntreprises){
+			if(entrepr.comparer(ent)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void ajoutEntreprise(Entreprise ent){
+		if (!this.rechercherEntreprise(ent)){
+			this.lesEntreprises.add(ent);
+		}
+	}
+	
+	public void ajoutEntreprise(String nomEntreprise, String adresseEntrepise){
+		this.ajoutEntreprise(new Entreprise(nomEntreprise, adresseEntrepise));
+	}
+
+	public Utilisateur renvoiUtilisateur(Utilisateur recheUti){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==recheUti.getClass()){
+				if(util.comparerUtil(recheUti)){
+					return util;
+				}				
+			}
+		}
+		return null;
+	}
+	/**
+	 * Regarde si un utilisateur existe
+	 * @param nom
+	 * @param prenom
+	 * @return
+	 */
+	public Utilisateur renvoiUtilisateur(String nom, String prenom){
+		for(Utilisateur util : lesUtilisateurs){
+			if(util.comparerUtil(nom, prenom)){
+				return util;
+			}
+		}
+		return null;
+	}
+	
+	public void ajoutSoutenanceEtudiant(Etudiant etu, Soutenance sout){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==etu.getClass()){
+				if(util.comparerUtil(etu)){
+					((Etudiant)util).setSaSoutenance(sout);
+					sout.ajoutEtu(((Etudiant)util));
+					this.lePlanning.ajoutSoutenance(sout);
+				}				
+			}
+		}
+	}
+	
+	public void retirerSoutenanceEtudiant(Etudiant etu){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==etu.getClass()){
+				if(util.comparerUtil(etu)){
+					((Etudiant)util).getSaSoutenance().supprimerEtu(((Etudiant)util));
+					((Etudiant)util).setSaSoutenance(null);;
+				}				
+			}
+		}
+	}
+	
+	public void setProfReferentEtudiant(Etudiant etu, Enseignant ajout){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==etu.getClass()){
+				if(util.comparerUtil(etu)){
+					((Etudiant)util).setProfReferent(ajout);
+					ajout.ajoutEtudiant(((Etudiant)util));
+				}				
+			}
+		}
+	}
+	
+	public void setEtudiant(Etudiant etu, Entreprise ajout){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==etu.getClass()){
+				if(util.comparerUtil(etu)){
+					((Etudiant)util).setEntrepriseStage(ajout);
+					ajout.ajoutEtudiant(((Etudiant)util));
+				}				
+			}
+		}
+	}
+	
+	public void setDossierEtudiant(Etudiant etu, Dossier ajout){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==etu.getClass()){
+				if(util.comparerUtil(etu)){
+					((Etudiant)util).setSonDossier(ajout);
+					ajout.setEtudiant(((Etudiant)util));
+				}				
+			}
+		}
+	}
+	
+	public void setStageEtudiant(Etudiant etu, Stage ajout){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==etu.getClass()){
+				if(util.comparerUtil(etu)){
+					((Etudiant)util).setSonStage(ajout);
+					ajout.setEtudiantStage(((Etudiant)util));
+				}				
+			}
+		}
+	}
+	
+	public void ajoutEtudiantTuteurEntreprise(TuteurEntreprise tut, Etudiant etu){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==tut.getClass()){
+				if(util.comparerUtil(tut)){
+					for(Utilisateur util2 : lesUtilisateurs){ 
+						if(util2.getClass()==etu.getClass()){
+							if(util2.comparerUtil(etu)){
+								((TuteurEntreprise)util).ajoutEtudiant((Etudiant)util2);
+							}
+						}
+					}
+				}						
+			}
+		}
+	}
+	
+	public void ajoutSoutenanceTuteurEntreprise(TuteurEntreprise tut, Soutenance sout){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==tut.getClass()){
+				if(util.comparerUtil(tut)){
+					((TuteurEntreprise)util).ajoutSoutenance(sout);
+				}						
+			}
+		}
+	}
+	
+	public void ajoutJuryEnseignant(Enseignant ens, Jury jur){
+		for(Utilisateur util : lesUtilisateurs){ 
+			if(util.getClass()==ens.getClass()){
+				if(util.comparerUtil(ens)){
+					((Enseignant)util).ajoutJury(jur);
+					jur.ajoutEnseignant(((Enseignant)util));
+				}						
+			}
+		}
+	}
+	
+	
+	
+	public boolean entrepriseExist(String nomEntreprise, String adresseEntrepise){
+		for(Entreprise ent : this.lesEntreprises){
+			if(ent.getAdresse()==adresseEntrepise && ent.getNom()==nomEntreprise){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public Entreprise RechercheEntreprise(String nomEntreprise, String adresseEntrepise){
+		for(Entreprise ent : this.lesEntreprises){
+			if(ent.getAdresse()==adresseEntrepise && ent.getNom()==nomEntreprise){
+				return ent;
+			}
+		}
+		return null;
+	}
+
+	public ArrayList<Entreprise> getLesEntreprises() {
+		return lesEntreprises;
+	}
+
+	public void setLesEntreprises(ArrayList<Entreprise> lesEntreprises) {
+		this.lesEntreprises = lesEntreprises;
+	}
+}
