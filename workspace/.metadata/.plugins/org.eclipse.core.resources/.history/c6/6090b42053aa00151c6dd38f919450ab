@@ -3,7 +3,6 @@ package controleur;
 import java.util.ArrayList;
 
 import modele.entreprise.Entreprise;
-import modele.utilisateur.Etudiant;
 
 public class ControleurEntreprise {
 	
@@ -48,5 +47,6 @@ public class ControleurEntreprise {
 	public void setLesEntreprises(ArrayList<Entreprise> lesEntreprises) {
 		this.lesEntreprises = lesEntreprises;
 	}
+	
 	
 }

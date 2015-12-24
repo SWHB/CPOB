@@ -170,7 +170,7 @@ public class ControleurUtilisateur {
 		}
 	}
 	
-	public void setEtudiant(Etudiant etu, Entreprise ajout){
+	public void setEntrepriseEtudiant(Etudiant etu, Entreprise ajout){
 		for(Utilisateur util : lesUtilisateurs){ 
 			if(util.getClass()==etu.getClass()){
 				if(util.comparerUtil(etu)){
