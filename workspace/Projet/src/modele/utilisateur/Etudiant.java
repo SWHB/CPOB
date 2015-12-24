@@ -38,11 +38,25 @@ public class Etudiant extends Utilisateur{
 	 */
 	private Dossier sonDossier;
 	
+	private Soutenance saSoutenance;
+	
 	
 	public Etudiant(String nomEtudiant, String prenomEtudiant, String adressePersoEtudiant, String telEtudiant, String adresseMailEtudiant, String mdpEtudiant,
-			String groupe) {
+			String groupe,Soutenance soutenance) {
 		super(nomEtudiant, prenomEtudiant, adressePersoEtudiant, telEtudiant, adresseMailEtudiant, mdpEtudiant);
 		this.groupe = groupe;
+		this.saSoutenance=soutenance;
+	}
+	
+	public void ajoutSoutenance(Soutenance s)
+	{
+		 
+		
+	}
+	
+	public void supprimerSoutenance(Soutenance s)
+	{
+		
 	}
 
 	public Entreprise getEntrepriseStage() {

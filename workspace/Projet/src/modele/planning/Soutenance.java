@@ -66,11 +66,6 @@ public class Soutenance {
 		}
 	}
 	
-	public void finalize(Stage stg, Date debut, Date fin, Jury jur)
-    {
-         System.out.println("Objet nettoyé de la mémoire");   
-    }
-
 	public Stage getSonStage() {
 		return sonStage;
 	}

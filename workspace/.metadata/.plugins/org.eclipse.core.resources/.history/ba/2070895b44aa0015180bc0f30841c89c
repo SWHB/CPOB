@@ -22,7 +22,7 @@ public class Planning {
 	 */
 	private ArrayList<Soutenance> lesSoustenances;
 	
-	public  Planning(Date debut, Date fin){
+	private  Planning(Date debut, Date fin){
 		this.dateDebut=debut;
 		this.dateFin=fin;
 		this.lesSoustenances= new ArrayList<Soutenance>();
@@ -35,46 +35,6 @@ public class Planning {
 			INSTANCE = new Planning(debut, fin);
 		}
 		return INSTANCE;
-	}
-	
-	public boolean rechercherSoutenance(Soutenance s)
-	{
-		boolean trouve=false;
-		
-		for(Soutenance sout:lesSoustenances)
-		{
-			if(sout.toString()==s.toString())
-			{
-				trouve=true;
-			}
-			else
-			{
-				trouve=false;
-			}
-		}
-		return trouve;
-	}
-	
-	public void ajoutSoutenance(Soutenance s)
-	{
-		for(Soutenance sout:lesSoustenances)
-		{
-			if(sout.toString()==s.toString())
-			{
-				lesSoustenances.add(s);
-			}
-		}
-	}
-	
-	public void supprimerSoutenance(Soutenance s)
-	{
-		for(Soutenance sout:lesSoustenances)
-		{
-			if(sout.toString()==s.toString())
-			{
-				lesSoustenances.remove(s);
-			}
-		}
 	}
 
 	public Date getDateDebut() {

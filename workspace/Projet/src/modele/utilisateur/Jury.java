@@ -2,6 +2,7 @@ package modele.utilisateur;
 
 import java.util.ArrayList;
 
+import modele.planning.Soutenance;
 import modele.stage.Stage;
 /**
  * Classe représentant les Jury
@@ -17,11 +18,15 @@ public class Jury {
 	private ArrayList<Enseignant> lesEnseignant;
 	private Stage sonStage;
 	private Enseignant president;
+	private String id;
+	private ArrayList<Soutenance> sesSoutenances;
 	
-	public Jury(Stage stg){
+	public Jury(String id,Stage stg){
+		this.id=id;
 		this.president=null;
 		this.sonStage = stg;
 		this.lesEnseignant = new ArrayList<Enseignant>();
+		sesSoutenances=new ArrayList<Soutenance>();
 		this.lesEnseignant.add(this.sonStage.getEtudiantStage().getProfReferent());
 	}
 	
