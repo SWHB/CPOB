@@ -38,24 +38,16 @@ public class Etudiant extends Utilisateur{
 	 */
 	private Dossier sonDossier;
 	
-	private TuteurEntreprise sonTuteurEntreprise;
-	
 	private Soutenance saSoutenance;
 	
-	public Etudiant(String nom, String prenom, String adressePerso, String tel, String adresseMail, String mdp,
-			String groupe, Enseignant profReferent, Entreprise entrepriseStage, Stage sonStage, Dossier sonDossier,
-			TuteurEntreprise sonTuteurEntreprise, Soutenance saSoutenance) {
-		super(nom, prenom, adressePerso, tel, adresseMail, mdp);
+	
+	public Etudiant(String nomEtudiant, String prenomEtudiant, String adressePersoEtudiant, String telEtudiant, String adresseMailEtudiant, String mdpEtudiant,
+			String groupe,Soutenance soutenance) {
+		super(nomEtudiant, prenomEtudiant, adressePersoEtudiant, telEtudiant, adresseMailEtudiant, mdpEtudiant);
 		this.groupe = groupe;
-		this.profReferent = profReferent;
-		this.entrepriseStage = entrepriseStage;
-		this.sonStage = sonStage;
-		this.sonDossier = sonDossier;
-		this.sonTuteurEntreprise = sonTuteurEntreprise;
-		this.saSoutenance = saSoutenance;
+		this.saSoutenance=soutenance;
 	}
-
-
+	
 	public Etudiant(String nomEtudiant, String prenomEtudiant, String adressePersoEtudiant, String telEtudiant, String adresseMailEtudiant, String mdpEtudiant,
 			String groupe) {
 		super(nomEtudiant, prenomEtudiant, adressePersoEtudiant, telEtudiant, adresseMailEtudiant, mdpEtudiant);
@@ -110,14 +102,6 @@ public class Etudiant extends Utilisateur{
 
 	public void setSaSoutenance(Soutenance saSoutenance) {
 		this.saSoutenance = saSoutenance;
-	}
-
-	public TuteurEntreprise getSonTuteurEntreprise() {
-		return sonTuteurEntreprise;
-	}
-
-	public void setSonTuteurEntreprise(TuteurEntreprise sonTuteurEntreprise) {
-		this.sonTuteurEntreprise = sonTuteurEntreprise;
 	}
 	
 }

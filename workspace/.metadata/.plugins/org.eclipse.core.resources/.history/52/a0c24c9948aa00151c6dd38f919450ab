@@ -31,20 +31,8 @@ public class Enseignant extends Utilisateur{
 		this.sesEtudiants = sesEtudiants;
 	}
 	
-	public void ajoutEtudiant(Etudiant etudiant){
+	public void ajouterEtudiant(Etudiant etudiant){
 		this.sesEtudiants.add(etudiant);
-	}
-
-	public ArrayList<Jury> getSesJury() {
-		return sesJury;
-	}
-
-	public void setSesJury(ArrayList<Jury> sesJury) {
-		this.sesJury = sesJury;
-	}
-	
-	public void ajoutJury(Jury jur){
-		this.sesJury.add(jur);
 	}
 	
 }

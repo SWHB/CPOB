@@ -28,10 +28,9 @@ public class TuteurEntreprise extends Utilisateur{
 	
 	
 	public TuteurEntreprise(String nomTuteur, String prenomTuteur, String adressePersoTuteur, String telTuteur, String adresseMailTuteur,
-			String mdpTuteur, Entreprise ens) {
+			String mdpTuteur) {
 		super(nomTuteur, prenomTuteur, adressePersoTuteur, telTuteur, adresseMailTuteur, mdpTuteur);
 		this.sesEtudiants= new ArrayList<Etudiant>();
-		this.entreprise=ens;
 		this.sesSoutenaces= new ArrayList<Soutenance>();
 	}
 
@@ -53,10 +52,6 @@ public class TuteurEntreprise extends Utilisateur{
 	
 	public void ajoutEtudiant(Etudiant etudiant){
 		this.sesEtudiants.add(etudiant);
-	}
-	
-	public void ajoutSoutenance(Soutenance sout){
-		this.sesSoutenaces.add(sout);
 	}
 	
 }

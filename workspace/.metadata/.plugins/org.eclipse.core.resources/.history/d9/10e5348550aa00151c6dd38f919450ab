@@ -55,8 +55,4 @@ public class TuteurEntreprise extends Utilisateur{
 		this.sesEtudiants.add(etudiant);
 	}
 	
-	public void ajoutSoutenance(Soutenance sout){
-		this.sesSoutenaces.add(sout);
-	}
-	
 }

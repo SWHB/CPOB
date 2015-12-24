@@ -2,10 +2,7 @@ package controleur;
 
 import java.util.ArrayList;
 
-import modele.document.Dossier;
-import modele.entreprise.Entreprise;
 import modele.planning.Soutenance;
-import modele.stage.Stage;
 import modele.utilisateur.*;
 /**
  * Controleur des Utilisateurs
@@ -55,8 +52,8 @@ public class ControleurUtilisateur {
 	 * @see TuteurEntreprise
 	 */
 	public void ajouterTuteurEntreprise(String nomTuteur, String prenomTuteur, String adressePersoTuteur, String telTuteur, String adresseMailTuteur,
-			String mdpTuteur, Entreprise ent){
-		this.ajouterUtilisateur( new TuteurEntreprise( nomTuteur, prenomTuteur, adressePersoTuteur,  telTuteur,  adresseMailTuteur, mdpTuteur, ent));
+			String mdpTuteur){
+		this.ajouterUtilisateur( new TuteurEntreprise( nomTuteur, prenomTuteur, adressePersoTuteur,  telTuteur,  adresseMailTuteur, mdpTuteur));
 	}
 	/**
 	 * Ajout d'une Enseignant
@@ -90,6 +87,7 @@ public class ControleurUtilisateur {
 	public boolean rechercherUtilisateur(Utilisateur recheUti){
 		for(Utilisateur util : lesUtilisateurs){ 
 			if(util.getClass()==recheUti.getClass()){
+				System.out.println("ok");
 				if(util.comparerUtil(recheUti)){
 					return true;
 				}				
@@ -115,6 +113,7 @@ public class ControleurUtilisateur {
 	public Utilisateur renvoiUtilisateur(Utilisateur recheUti){
 		for(Utilisateur util : lesUtilisateurs){ 
 			if(util.getClass()==recheUti.getClass()){
+				System.out.println("ok");
 				if(util.comparerUtil(recheUti)){
 					return util;
 				}				
@@ -140,9 +139,9 @@ public class ControleurUtilisateur {
 	public void ajoutSoutenanceEtudiant(Etudiant etu, Soutenance sout){
 		for(Utilisateur util : lesUtilisateurs){ 
 			if(util.getClass()==etu.getClass()){
+				System.out.println("ok");
 				if(util.comparerUtil(etu)){
-					((Etudiant)util).setSaSoutenance(sout);
-					sout.ajoutEtu(((Etudiant)util));
+					((Etudiant)util).setSaSoutenance(sout);;
 				}				
 			}
 		}
@@ -151,96 +150,12 @@ public class ControleurUtilisateur {
 	public void retirerSoutenanceEtudiant(Etudiant etu){
 		for(Utilisateur util : lesUtilisateurs){ 
 			if(util.getClass()==etu.getClass()){
+				System.out.println("ok");
 				if(util.comparerUtil(etu)){
-					((Etudiant)util).getSaSoutenance().supprimerEtu(((Etudiant)util));
 					((Etudiant)util).setSaSoutenance(null);;
 				}				
 			}
 		}
 	}
-	
-	public void setProfReferentEtudiant(Etudiant etu, Enseignant ajout){
-		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==etu.getClass()){
-				if(util.comparerUtil(etu)){
-					((Etudiant)util).setProfReferent(ajout);
-					ajout.ajoutEtudiant(((Etudiant)util));
-				}				
-			}
-		}
-	}
-	
-	public void setEntrepriseEtudiant(Etudiant etu, Entreprise ajout){
-		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==etu.getClass()){
-				if(util.comparerUtil(etu)){
-					((Etudiant)util).setEntrepriseStage(ajout);
-					ajout.ajoutEtudiant(((Etudiant)util));
-				}				
-			}
-		}
-	}
-	
-	public void setDossierEtudiant(Etudiant etu, Dossier ajout){
-		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==etu.getClass()){
-				if(util.comparerUtil(etu)){
-					((Etudiant)util).setSonDossier(ajout);
-					ajout.setEtudiant(((Etudiant)util));
-				}				
-			}
-		}
-	}
-	
-	public void setStageEtudiant(Etudiant etu, Stage ajout){
-		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==etu.getClass()){
-				if(util.comparerUtil(etu)){
-					((Etudiant)util).setSonStage(ajout);
-					ajout.setEtudiantStage(((Etudiant)util));
-				}				
-			}
-		}
-	}
-	
-	public void ajoutEtudiantTuteurEntreprise(TuteurEntreprise tut, Etudiant etu){
-		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==tut.getClass()){
-				if(util.comparerUtil(tut)){
-					for(Utilisateur util2 : lesUtilisateurs){ 
-						if(util2.getClass()==etu.getClass()){
-							if(util2.comparerUtil(etu)){
-								((TuteurEntreprise)util).ajoutEtudiant((Etudiant)util2);
-							}
-						}
-					}
-				}						
-			}
-		}
-	}
-	
-	public void ajoutSoutenanceTuteurEntreprise(TuteurEntreprise tut, Soutenance sout){
-		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==tut.getClass()){
-				if(util.comparerUtil(tut)){
-					((TuteurEntreprise)util).ajoutSoutenance(sout);
-				}						
-			}
-		}
-	}
-	
-	public void ajoutJuryEnseignant(Enseignant ens, Jury jur){
-		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==ens.getClass()){
-				if(util.comparerUtil(ens)){
-					((Enseignant)util).ajoutJury(jur);
-					jur.ajoutEnseignant(((Enseignant)util));
-				}						
-			}
-		}
-	}
-	
-	
-	
 	
 }

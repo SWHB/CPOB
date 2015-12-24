@@ -57,12 +57,24 @@ public class Planning {
 	
 	public void ajoutSoutenance(Soutenance s)
 	{
-		this.lesSoustenances.add(s);
+		for(Soutenance sout:lesSoustenances)
+		{
+			if(sout.toString()==s.toString())
+			{
+				lesSoustenances.add(s);
+			}
+		}
 	}
 	
 	public void supprimerSoutenance(Soutenance s)
 	{
-		this.lesSoustenances.remove(s);
+		for(Soutenance sout:lesSoustenances)
+		{
+			if(sout.toString()==s.toString())
+			{
+				lesSoustenances.remove(s);
+			}
+		}
 	}
 
 	public Date getDateDebut() {

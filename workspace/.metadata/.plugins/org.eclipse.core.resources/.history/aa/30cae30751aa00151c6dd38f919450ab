@@ -164,7 +164,7 @@ public class ControleurUtilisateur {
 			if(util.getClass()==etu.getClass()){
 				if(util.comparerUtil(etu)){
 					((Etudiant)util).setProfReferent(ajout);
-					ajout.ajoutEtudiant(((Etudiant)util));
+					ajout.ajouterEtudiant(((Etudiant)util));
 				}				
 			}
 		}
@@ -229,12 +229,17 @@ public class ControleurUtilisateur {
 		}
 	}
 	
-	public void ajoutJuryEnseignant(Enseignant ens, Jury jur){
+	public void ajoutEtudiantEnseignant(Enseignant tut, Etudiant etu){
 		for(Utilisateur util : lesUtilisateurs){ 
-			if(util.getClass()==ens.getClass()){
-				if(util.comparerUtil(ens)){
-					((Enseignant)util).ajoutJury(jur);
-					jur.ajoutEnseignant(((Enseignant)util));
+			if(util.getClass()==tut.getClass()){
+				if(util.comparerUtil(tut)){
+					for(Utilisateur util2 : lesUtilisateurs){ 
+						if(util2.getClass()==etu.getClass()){
+							if(util2.comparerUtil(etu)){
+								((Enseignant)util).ajoutEtudiant((Etudiant)util2);
+							}
+						}
+					}
 				}						
 			}
 		}
