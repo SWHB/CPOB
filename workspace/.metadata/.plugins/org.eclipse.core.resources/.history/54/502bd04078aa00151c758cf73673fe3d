@@ -297,14 +297,4 @@ public class ControleurGeneral {
 	public void setLesEntreprises(ArrayList<Entreprise> lesEntreprises) {
 		this.lesEntreprises = lesEntreprises;
 	}
-	
-	public void ajout(Etudiant etu, Enseignant ens, TuteurEntreprise tut, Stage stg){
-		etu.setProfReferent(ens);
-		ens.ajoutEtudiant(etu);
-		etu.setSonTuteurEntreprise(tut);
-		tut.ajoutEtudiant(etu);
-		etu.setSonStage(stg);
-		stg.setEtudiantStage(etu);
-	}
-	
 }

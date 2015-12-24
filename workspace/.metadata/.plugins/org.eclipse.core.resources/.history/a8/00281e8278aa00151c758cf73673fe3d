@@ -298,13 +298,8 @@ public class ControleurGeneral {
 		this.lesEntreprises = lesEntreprises;
 	}
 	
-	public void ajout(Etudiant etu, Enseignant ens, TuteurEntreprise tut, Stage stg){
-		etu.setProfReferent(ens);
-		ens.ajoutEtudiant(etu);
-		etu.setSonTuteurEntreprise(tut);
-		tut.ajoutEtudiant(etu);
-		etu.setSonStage(stg);
-		stg.setEtudiantStage(etu);
+	public void ajout(Etudiant etu, Enseignant, TuteurEntreprise, Stage stg){
+		
 	}
 	
 }

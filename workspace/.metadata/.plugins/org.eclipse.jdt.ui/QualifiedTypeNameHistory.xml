@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="javax.swing.JTextField"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="modele.utilisateur.Jury"/>
 <fullyQualifiedTypeName name="frame.FrameSoutenance"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
@@ -15,4 +14,6 @@
 <fullyQualifiedTypeName name="modele.utilisateur.Etudiant"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="modele.stage.Stage"/>
+<fullyQualifiedTypeName name="modele.planning.Planning"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>
